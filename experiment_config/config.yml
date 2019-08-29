@@ -1,0 +1,55 @@
+# Configuration for energy system simulation
+# Date: Thu 14rd of August 2019
+# Author: Jakob Wolf (jakob.wolf@beuth-hochschule.de)
+
+run_model: True
+display_results: True
+
+# Set True to run your own analysis script on the results.
+# Requires a function 'my_detailed_analysis' within a
+# module 'detailed_analysis.py'
+run_detailed_analysis: False
+
+debug: False
+solver: 'cbc'
+solver_verbose: False
+
+number_of_teams: 8
+team_names:
+#  - '1'   # 01
+#  - '2'   # 02
+#  - '3'   # 03
+#  - '4'   # 04
+#  - '5'   # 05
+#  - '6'   # 06
+#  - '7'   # 07
+#  - '8'   # 08
+  - 'Moabit'    # 01
+  - 'Kreuzberg' # 02
+  - 'Frohnau'   # 03
+  - 'Adlershof' # 04
+  - 'Wedding'   # 05
+  - 'Tegel'     # 06
+  - 'Pankow'    # 07
+  - 'Treptow'   # 08
+
+# Specific energy system design of each team
+design_parameters_file_name:
+  - 'parameters_Team_01.csv'
+  - 'parameters_Team_02.csv'
+  - 'parameters_Team_03.csv'
+  - 'parameters_Team_04.csv'
+  - 'parameters_Team_05.csv'
+  - 'parameters_Team_06.csv'
+  - 'parameters_Team_07.csv'
+  - 'parameters_Team_08.csv'
+
+# Parameters and technical specifications
+# (same for energy systems of all teams)
+parameters_file_name:  'general_parameters.csv'
+
+# Input time series
+# (electrical demand, district heating demand,
+#  irradiation, wind power output)
+time_series_file_name: 'DAT_Energie-Workshop.CSV'
+##time_series_file_name: 'time_series_hourly_values.CSV'
