@@ -1,0 +1,10 @@
+id,var_name,value,unit,reference,Comment,tag_1,tag_2,component
+1,number_of_windturbines,1,1,,,,,wind_turb
+2,number_of_chps,2,1,,,,,chp
+3,number_of_boilers,0,1,,,,,boiler
+4,number_of_PV_pp,0,1,,,,,PV_pp
+5,number_of_heat_pumps,7,1,,,,,heat_pump
+6,area_PV,4,ha,,,,,PV
+7,area_solar_th,4,ha,,,,,solart_th
+8,capacity_electr_storage,2,daily_demand,,,,capacity,storage_el
+9,capacity_thermal_storage,7,daily_demand,,,,capacity,storage_th
