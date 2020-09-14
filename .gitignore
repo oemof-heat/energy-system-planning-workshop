@@ -3,9 +3,6 @@
 *.png
 *.lp
 
-# Exclude directory
-dumps/
-
 # Exclude misc
 .idea
 __pycache__
