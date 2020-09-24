@@ -3,7 +3,7 @@
 """
 
 Date: 3rd of June 2019
-Author: Jakob Wolf (jakob.wolf@beuth-hochschule.de)
+Author: Jakob Wolf
 
 """
 

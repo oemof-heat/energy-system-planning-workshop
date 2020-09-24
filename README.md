@@ -1,5 +1,8 @@
-# workshop
+# Workshop
 Game-based learning workshop about energy systems
+
+# Contact
+christoph.pels-leusden(at)beuth-hochschule.de
 
 # License
 Copyright (C) 2019 Beuth Hochschule für Technik Berlin

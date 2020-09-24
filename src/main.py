@@ -11,7 +11,7 @@ each team and analysis the results based on settings made in
 'experimental_config/config.yml'.
 
 Date: 29th of August 2019
-Author: Jakob Wolf (jakob.wolf@beuth-hochschule.de)
+Author: Jakob Wolf
 Licence: GPL-3.0
 
 """
