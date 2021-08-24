@@ -1,5 +1,9 @@
 # Workshop
-Game-based learning workshop about energy systems
+In this simulation game you can create and evaluate a new energy system for electricity and heat supply for a imaginary German town with 10000 inhabitants. Choose from technical options such as wind, solar thermal, photovoltaics, heat pumps and conventional technologies as well as energy storages. You avoid shortages, watch costs and CO2-emissions. oemof is used to optimize the operation of each team's energy system during one typical calender year.  
+
+With this simulation game several targets can be addressed: learn technical challanges in energy transition, apply knowledge in fundamentals of energy technology and physics, discuss options for climate protection, understand oemof and optimization problems, involve people and teams.
+
+The game generally works with a trainer and a group of approx. 15-35 participants. All necessary material can be downloaded here. Own adaptations are possible. It is strongly recommended to set up and test the oemof computation before the game.    
 
 # Contact
 christoph.pels-leusden(at)beuth-hochschule.de
