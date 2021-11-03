@@ -10,8 +10,8 @@ This Program calls the energy system simulation (optimization) for
 each team and analysis the results based on settings made in
 'experimental_config/config.yml'.
 
-Date: 29th of August 2019
-Author: Jakob Wolf
+Date: 3rd of November 2021
+Author: Christoph Pels Leusden, Jakob Wolf
 Licence: GPL-3.0
 
 """

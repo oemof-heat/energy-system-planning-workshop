@@ -2,8 +2,8 @@
 
 """
 
-Date: 3rd of June 2019
-Author: Jakob Wolf
+Date: 3rd of November 2021
+Author: Christoph Pels Leusden, Jakob Wolf
 
 """
 
@@ -12,12 +12,9 @@ Author: Jakob Wolf
 ###############################################################################
 
 # Default logger of oemof
-from oemof.tools import logger
-from oemof.tools import helpers
-
 import oemof.solph as solph
-import oemof.outputlib as outputlib
-
+from oemof.solph import helpers
+from oemof.tools import logger
 import logging
 import os
 import pandas as pd
@@ -36,7 +33,6 @@ def run_model(config_path, team_number):
 
     solver = cfg['solver']
     debug = cfg['debug']
-    periods = number_of_time_steps
     solver_verbose = cfg['solver_verbose']  # show/hide solver output
 
     # initiate the logger (see the API docs for more information)
@@ -113,57 +109,53 @@ def run_model(config_path, team_number):
 
     if param_value['number_of_windturbines'] > 0:
         energysystem.add(solph.Source(
-            label='wind_turbine',
-            outputs={bel: solph.Flow(
-                actual_value=(data['Wind_power [kW/unit]']
-                              * param_value['number_of_windturbines']
-                              * 0.001),  # [MWh]
-                nominal_value=1,
-                fixed=True)}))
+        label='wind_turbine',
+        outputs={bel: solph.Flow(
+            fix=data['Wind_power [kW/unit]'],
+            nominal_value = 0.001 * param_value['number_of_windturbines']
+            )},))
 
     energysystem.add(solph.Sink(
         label='demand_el',
         inputs={bel: solph.Flow(
-            actual_value=data['Demand_el [MWh]'],  # [MWh]
-            nominal_value=1,
-            fixed=True)}))
+            fix=data['Demand_el [MWh]'],  # [MWh]
+            nominal_value=1)}))
 
     energysystem.add(solph.Sink(
         label='demand_th',
         inputs={bth: solph.Flow(
-            actual_value=data['Demand_th [MWh]'],  # [MWh]
-            nominal_value=1,
-            fixed=True)}))
+            fix=data['Demand_th [MWh]'],  # [MWh]
+            nominal_value=1)}))
 
     # Open-field photovoltaic power plant
     if param_value['number_of_PV_pp'] > 0:
         energysystem.add(solph.Source(
             label='PV_pp',
             outputs={bel: solph.Flow(
-                actual_value=(data['Sol_irradiation [Wh/sqm]'] * 0.000001
+                fix=(data['Sol_irradiation [Wh/sqm]'] * 0.000001
                               * param_value['eta_PV']),  # [MWh/m²]
-                nominal_value=param_value['PV_pp_surface_area']*10000,  # [m²]
-                fixed=True)}))
+                nominal_value=param_value['PV_pp_surface_area']*10000  # [m²]
+                )}))
 
     # Rooftop photovoltaic
     if param_value['area_PV'] > 0:
         energysystem.add(solph.Source(
             label='PV',
             outputs={bel: solph.Flow(
-                actual_value=(data['Sol_irradiation [Wh/sqm]'] * 0.000001
+                fix=(data['Sol_irradiation [Wh/sqm]'] * 0.000001
                               * param_value['eta_PV']),  # [MWh/m²]
-                nominal_value=param_value['area_PV']*10000,  # [m²]
-                fixed=True)}))
+                nominal_value=param_value['area_PV']*10000  # [m²]
+                )}))
 
     # Rooftop solar thermal
     if param_value['area_solar_th'] > 0:
         energysystem.add(solph.Source(
             label='solar_thermal',
             outputs={bth: solph.Flow(
-                actual_value=(data['Sol_irradiation [Wh/sqm]'] * 0.000001
+                fix=(data['Sol_irradiation [Wh/sqm]'] * 0.000001
                               * param_value['eta_solar_th']),  # [MWh/m²]
-                nominal_value=param_value['area_solar_th']*10000,  # [m²]
-                fixed=True)}))
+                nominal_value=param_value['area_solar_th']*10000  # [m²]
+                )}))
 
     if param_value['number_of_chps'] > 0:
         energysystem.add(solph.Transformer(
@@ -257,8 +249,8 @@ def run_model(config_path, team_number):
 
     logging.info('Store the energy system with the results.')
 
-    energysystem.results['main'] = outputlib.processing.results(model)
-    energysystem.results['meta'] = outputlib.processing.meta_results(model)
+    energysystem.results['main'] = solph.processing.results(model)
+    energysystem.results['meta'] = solph.processing.meta_results(model)
 
     energysystem.dump(dpath=abs_path + "/results/optimisation_results/dumps",
                       filename="model_team_{0}.oemof".format(team_number+1))
