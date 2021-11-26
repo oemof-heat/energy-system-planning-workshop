@@ -28,10 +28,10 @@ id,var_name,value,unit,reference,Comment,tag_1,tag_2,component
 27,invest_cost_chp,222222,EUR/unit,,,,costs,
 28,invest_cost_boiler,3000000,EUR/unit,,,,costs,
 29,invest_cost_heatpump,4500000,EUR/unit,,,,costs,
-30,invest_cost_pv,2660000,EUR/ha,,,,costs,
+30,invest_cost_pv,2000000,EUR/ha,,,,costs,
 31,invest_cost_solarthermal,5000000,EUR/ha,,,,costs,
 32,invest_cost_storage_el,26000000,EUR/daily_demand_el,,,,costs,
-33,invest_cost_PV_pp,2500000,EUR/ha,,,,,
+33,invest_cost_PV_pp,1000000,EUR/ha,,,,,
 34,invest_cost_storage_th,14000000,EUR/daily_demand_th,,,,costs,
 35,var_costs_shortage_bel,180,EUR/MWh,,,,costs,bus
 36,var_costs_shortage_bth,100,EUR/MWh,,,,costs,bus

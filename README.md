@@ -6,10 +6,10 @@ With this simulation game several targets can be addressed: learn technical chal
 The game generally works with a trainer and a group of approx. 15-35 participants. All necessary material can be downloaded here. Own adaptations are possible. It is strongly recommended to set up and test the oemof computation before the game.    
 
 # Contact
-christoph.pels-leusden(at)beuth-hochschule.de
+christoph.pels-leusden(at)bht-berlin.de
 
 # License
-Copyright (C) 2019 Beuth Hochschule für Technik Berlin
+Copyright (C) 2021 Berliner Hochschule für Technik
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
