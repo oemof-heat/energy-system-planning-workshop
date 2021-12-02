@@ -7,10 +7,15 @@ The game generally works with a trainer and a group of approx. 15-35 participant
 
 # Subfolder-Structure
 This repository includes the subdirectories with the following contents:
+
 data: all data to run the calculations including data description (meta-data)
+
 experiment_config: file to control the calculation process
+
 presentation: material to present the workshop content, given data, boundary condition and technical options
+
 results: calculation results
+
 src: python sources
 
 # Installation
