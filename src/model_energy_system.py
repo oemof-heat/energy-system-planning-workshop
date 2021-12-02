@@ -176,7 +176,7 @@ def run_model(config_path, team_number):
             inputs={bel: solph.Flow()},
             outputs={bth: solph.Flow(
                 nominal_value=(param_value['number_of_heat_pumps']
-                               * param_value['COP_heat_pump']))},  # [MW]
+                               * param_value['heatpump_heat_output']))},  # [MW]
             conversion_factors={bth: param_value['COP_heat_pump']}))
 
     if param_value['number_of_boilers'] > 0:

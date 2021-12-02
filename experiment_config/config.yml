@@ -1,6 +1,6 @@
 # Configuration for energy system simulation
-# Date: Thu 14rd of August 2019
-# Author: Jakob Wolf (jakob.wolf@beuth-hochschule.de)
+# Date: 26th of Nov 2021
+# Author: Christoph Pels Leusden (christoph.pels-leusden@bht-berlin.de)
 
 run_model: True
 display_results: True
