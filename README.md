@@ -29,7 +29,7 @@ The following steps are recommended to install the energy-system-planning-worksh
 6.	Install oemof.solph: https://oemof-solph.readthedocs.io/en/latest/readme.html#installation
 7.	Download and install Solver 'cbc' für Python 3.7: https://oemof-solph.readthedocs.io/en/latest/readme.html#installing-a-solver
 8.	Download energy-system-planning-workshop (Planspiel) from this repository and store all files with the given folder structure on your harddrive in a defined project-foler
-9.	In Terminal Window: Navigate to the project-foler
+9.	In Terminal Window: Navigate to the project-folder
 10.	Install all required packages using the command “pip install –r requirements.txt”
 
 # Operation
