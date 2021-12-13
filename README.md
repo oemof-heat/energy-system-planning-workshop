@@ -5,8 +5,21 @@ With this simulation game several targets can be addressed: learn technical chal
 
 The game generally works with a trainer and a group of approx. 15-35 participants. All necessary material can be downloaded here. Own adaptations are possible. It is strongly recommended to set up and test the oemof computation before the game.    
 
+# Installation
+The following steps are recommended to install the energy-system-planning-workshop on a Windows PC.
+
+1. Download and install Anaconda Navigator: https://www.anaconda.com/products/individual
+2. Open Anaconda Navigator
+3. Create new environment for python 3.6
+4. Activate your environment
+5. Open Terminal in your environment
+6. Download energy-system-planning-workshop (Planspiel) from this repository and store all files with the given folder structure on your harddrive in a defined project-folder
+7. In Terminal Window: Navigate to the project-folder
+8. Install all required packages using the command “pip install –r requirements.txt”
+9. Download and install Solver 'cbc' für Python 3.6: https://oemof-solph.readthedocs.io/en/latest/readme.html#installing-a-solver
+
 # Contact
-christoph.pels-leusden(at)beuth-hochschule.de
+christoph.pels-leusden(at)bht-berlin.de
 
 # License
 Copyright (C) 2019 Beuth Hochschule für Technik Berlin
