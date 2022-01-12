@@ -2,7 +2,6 @@
 # imports
 ###############################################################################
 import oemof.solph as solph
-import oemof.outputlib as outputlib
 import oemof.tools.economics as eco
 
 import os
@@ -40,7 +39,7 @@ def display_results(config_path, team_number):
     energysystem.restore(
         dpath=abs_path + "/results/optimisation_results/dumps",
         filename="model_team_{0}.oemof".format(team_number+1))
-    string_results = outputlib.views.convert_keys_to_strings(
+    string_results = solph.views.convert_keys_to_strings(
         energysystem.results['main'])
 
     # Extract specific time series (sequences) from results data
