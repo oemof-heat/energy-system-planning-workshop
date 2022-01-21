@@ -317,29 +317,28 @@ def plot_team_results(config_path, df_basic_results_and_team_decision):
     beuth_col_1 = (223/255, 242/255, 243/255)
     beuth_col_2 = (178/255, 225/255, 227/255)
     beuth_col_3 = (0/255, 152/255, 161/255)
-    for show_team_names in [False, True]:
-        plt.figure(figsize=(8, 6)) #default figsize=(8, 6)
-        plt.style.use('ggplot')
-        plt.rcParams['axes.facecolor'] = beuth_col_3
-        plt.ylabel('CO2-Emissionen in t/a', fontsize=14)
-        plt.xlabel('Kosten in Mio. €/a', fontsize=14)
-        plt.axis([0, 50, 0, 40000]) #Default Settings 0, 50, 0, 40000
-        #plt.axis([0, 30, 0, 30000])
 
-        plt.title(
+    plt.figure(figsize=(8, 6)) #default figsize=(8, 6)
+    plt.style.use('ggplot')
+    plt.rcParams['axes.facecolor'] = beuth_col_3
+    plt.ylabel('CO2-Emissionen in t/a', fontsize=14)
+    plt.xlabel('Kosten in Mio. €/a', fontsize=14)
+    plt.axis([0, 50, 0, 40000]) 
+    #plt.axis([0, 30, 0, 30000]) #alternative settings
+
+    plt.title(
             'Jährliche Emissionen und Kosten der Energieversorgung',
             fontsize=14)
-        plt.suptitle(cfg['workshop_title'],
-                     fontsize=10)
-        plt.tick_params(axis='both', which='major', labelsize=12)
-        #N = len(df_basic_results_and_team_decision)
-        labels_list = []
-        for tn in cfg['team_names']:
+    plt.suptitle(cfg['workshop_title'],
+                    fontsize=10)
+    plt.tick_params(axis='both', which='major', labelsize=12)
+    labels_list = []
+    for tn in cfg['team_names']:
             # new_name = 'Team ' + tn
             new_name = tn
             labels_list.append(new_name)
-        labels = labels_list
-        plt.scatter(
+    labels = labels_list
+    plt.scatter(
             df_basic_results_and_team_decision['costs'],
             df_basic_results_and_team_decision['emissions'],
             marker='o',
@@ -349,16 +348,12 @@ def plot_team_results(config_path, df_basic_results_and_team_decision):
             linewidths=1.0,
             alpha=1,
             cmap=plt.get_cmap('Spectral'))
-        plt.text(1, 2000, 'Copyright ©, Berliner Hochschule für '
+    plt.text(1, 2000, 'Copyright ©, Berliner Hochschule für '
                  + 'Technik, 2022. All rights reserved.',
                  fontsize=11.5, color=beuth_col_1,
                  ha='left', va='top', alpha=0.5)
-        if not show_team_names:
-            # plt.show()
-            plt.savefig('../results/plots/results_no_names.png', dpi=300)
-
-        if show_team_names:
-            for label, x, y in zip(
+ 
+    for label, x, y in zip(
                     labels,
                     df_basic_results_and_team_decision['costs'],
                     df_basic_results_and_team_decision['emissions']):
@@ -376,6 +371,4 @@ def plot_team_results(config_path, df_basic_results_and_team_decision):
                     arrowprops=dict(
                         arrowstyle='->',
                         connectionstyle='arc3,rad=0'))
-            plt.savefig(
-                '../results/plots/results_with_team_names.png',
-                dpi=300)
+    plt.savefig('../results/plots/results.png', dpi=300)
