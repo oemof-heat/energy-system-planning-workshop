@@ -19,12 +19,8 @@ Licence: GPL-3.0
 import os
 from model_energy_system import run_model
 from basic_analysis import display_results
+from detailed_analysis import my_detailed_analysis
 import yaml
-
-try:
-    from detailed_analysis import my_detailed_analysis
-except ImportError:
-    my_detailed_analysis = None
 
 
 def main():

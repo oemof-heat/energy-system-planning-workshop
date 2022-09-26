@@ -7,5 +7,5 @@
 .idea
 __pycache__
 */venv/*
-
+/results/optimisation_results/tables/results.csv
 

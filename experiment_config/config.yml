@@ -8,13 +8,14 @@ display_results: True
 # Set True to run your own analysis script on the results.
 # Requires a function 'my_detailed_analysis' within a
 # module 'detailed_analysis.py'
-run_detailed_analysis: False
+run_detailed_analysis: True
 
 debug: False
 solver: 'cbc'
 solver_verbose: False
 
-number_of_teams: 8
+workshop_title: 'Energie für (m)eine Stadt'
+number_of_teams: 3
 team_names:
 #  - '1'   # 01
 #  - '2'   # 02
