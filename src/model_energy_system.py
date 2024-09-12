@@ -38,13 +38,13 @@ def run_model(config_path, team_number):
     # initiate the logger (see the API docs for more information)
     logger.define_logging(logfile='model_team_{0}.log'.format(team_number+1),
                           screen_level=logging.INFO,
-                          file_level=logging.DEBUG)
+                          file_level=logging.INFO)
 
     logging.info('Initialize the energy system')
     date_time_index = pd.date_range('1/1/2030', periods=number_of_time_steps,
                                     freq='H')
 
-    energysystem = solph.EnergySystem(timeindex=date_time_index)
+    energysystem = solph.EnergySystem(timeindex=date_time_index, infer_last_interval=True)
 
     ##########################################################################
     # Read time series and parameter values from data files
@@ -84,44 +84,45 @@ def run_model(config_path, team_number):
     energysystem.add(bgas, bel, bth)
 
     # Sources and sinks
-    energysystem.add(solph.Sink(
+    energysystem.add(solph.components.Sink(
         label='excess_bel',
         inputs={bel: solph.Flow(
             variable_costs=param_value['var_costs_excess_bel'])}))
-    energysystem.add(solph.Sink(
+    energysystem.add(solph.components.Sink(
         label='excess_bth',
         inputs={bth: solph.Flow(
             variable_costs=param_value['var_costs_excess_bth'])}))
-    energysystem.add(solph.Source(
+    energysystem.add(solph.components.Source(
         label='shortage_bel',
         outputs={bel: solph.Flow(
             variable_costs=param_value['var_costs_shortage_bel'])}))
-    energysystem.add(solph.Source(
+    energysystem.add(solph.components.Source(
         label='shortage_bth',
         outputs={bth: solph.Flow(
             variable_costs=param_value['var_costs_shortage_bth'])}))
-    energysystem.add(solph.Source(
+    energysystem.add(solph.components.Source(
         label='rgas',
         outputs={bgas: solph.Flow(
             nominal_value=param_value['nom_val_gas'],
-            summed_max=param_value['sum_max_gas'],
+            #summed_max=param_value['sum_max_gas'],
+            full_load_time_max=param_value['sum_max_gas'],
             variable_costs=param_value['var_costs_gas'])}))
 
     if param_value['number_of_windturbines'] > 0:
-        energysystem.add(solph.Source(
+        energysystem.add(solph.components.Source(
         label='wind_turbine',
         outputs={bel: solph.Flow(
             fix=data['Wind_power [kW/unit]'],
             nominal_value = 0.001 * param_value['number_of_windturbines']
             )},))
 
-    energysystem.add(solph.Sink(
+    energysystem.add(solph.components.Sink(
         label='demand_el',
         inputs={bel: solph.Flow(
             fix=data['Demand_el [MWh]'],  # [MWh]
             nominal_value=1)}))
 
-    energysystem.add(solph.Sink(
+    energysystem.add(solph.components.Sink(
         label='demand_th',
         inputs={bth: solph.Flow(
             fix=data['Demand_th [MWh]'],  # [MWh]
@@ -129,7 +130,7 @@ def run_model(config_path, team_number):
 
     # Open-field photovoltaic power plant
     if param_value['number_of_PV_pp'] > 0:
-        energysystem.add(solph.Source(
+        energysystem.add(solph.components.Source(
             label='PV_pp',
             outputs={bel: solph.Flow(
                 fix=(data['Sol_irradiation [Wh/sqm]'] * 0.000001
@@ -139,7 +140,7 @@ def run_model(config_path, team_number):
 
     # Rooftop photovoltaic
     if param_value['area_PV'] > 0:
-        energysystem.add(solph.Source(
+        energysystem.add(solph.components.Source(
             label='PV',
             outputs={bel: solph.Flow(
                 fix=(data['Sol_irradiation [Wh/sqm]'] * 0.000001
@@ -149,7 +150,7 @@ def run_model(config_path, team_number):
 
     # Rooftop solar thermal
     if param_value['area_solar_th'] > 0:
-        energysystem.add(solph.Source(
+        energysystem.add(solph.components.Source(
             label='solar_thermal',
             outputs={bth: solph.Flow(
                 fix=(data['Sol_irradiation [Wh/sqm]'] * 0.000001
@@ -158,7 +159,7 @@ def run_model(config_path, team_number):
                 )}))
 
     if param_value['number_of_chps'] > 0:
-        energysystem.add(solph.Transformer(
+        energysystem.add(solph.components.Converter(
             label='chp',
             inputs={
                 bgas: solph.Flow()},
@@ -171,7 +172,7 @@ def run_model(config_path, team_number):
                 bel: param_value['conversion_factor_bel_chp']}))
 
     if param_value['number_of_heat_pumps'] > 0:
-        energysystem.add(solph.Transformer(
+        energysystem.add(solph.components.Converter(
             label='heat_pump',
             inputs={bel: solph.Flow()},
             outputs={bth: solph.Flow(
@@ -180,7 +181,7 @@ def run_model(config_path, team_number):
             conversion_factors={bth: param_value['COP_heat_pump']}))
 
     if param_value['number_of_boilers'] > 0:
-        energysystem.add(solph.Transformer(
+        energysystem.add(solph.components.Converter(
             label='boiler',
             inputs={bgas: solph.Flow()},
             outputs={bth: solph.Flow(
