@@ -105,7 +105,7 @@ def run_model(config_path, team_number):
         outputs={bgas: solph.Flow(
             nominal_value=param_value['nom_val_gas'],
             #summed_max=param_value['sum_max_gas'],
-            full_load_time_max=param_value['sum_max_gas'],
+            full_load_time_max=param_value['full_load_time_max_gas'],
             variable_costs=param_value['var_costs_gas'])}))
 
     if param_value['number_of_windturbines'] > 0:

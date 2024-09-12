@@ -9,7 +9,7 @@ id,var_name,value,unit,reference,Comment,tag_1,tag_2,component
 8,charge_time_storage_el,1,h,,,,,
 9,charge_time_storage_th,6,h,,,,,
 10,nom_val_gas,100000,MW,,,,,source
-11,sum_max_gas,100000000,MWh,,,,,source
+11,full_load_time_max_gas,1000,h,,,,,source
 12,var_costs_gas,45,EUR/MWh,,,,costs,source
 13,emission_el,500,kg/MWh,,,,,
 14,emission_gas,200,kg/MWh,,,,,
