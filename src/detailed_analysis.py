@@ -348,8 +348,7 @@ def plot_team_results(config_path, df_basic_results_and_team_decision):
             linewidths=1.0,
             alpha=1,
             cmap=plt.get_cmap('Spectral'))
-    plt.text(1, 2000, 'Copyright ©, Berliner Hochschule für '
-                 + 'Technik, 2022. All rights reserved.',
+    plt.text(1, 2000, 'Designed by Berliner Hochschule für Technik 2026',
                  fontsize=11.5, color=beuth_col_1,
                  ha='left', va='top', alpha=0.5)
  

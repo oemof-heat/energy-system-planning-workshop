@@ -42,7 +42,7 @@ def run_model(config_path, team_number):
 
     logging.info('Initialize the energy system')
     date_time_index = pd.date_range('1/1/2030', periods=number_of_time_steps,
-                                    freq='H')
+                                    freq='h')
 
     energysystem = solph.EnergySystem(timeindex=date_time_index, infer_last_interval=True)
 

@@ -24,10 +24,10 @@ The following steps are recommended to install the energy-system-planning-worksh
 1.	Download and install Miniconda: https://docs.anaconda.com/miniconda/miniconda-install/
 2.	Download energy-system-planning-workshop (Planspiel) from this Github-repository and store all files with the given folder structure on your harddrive in a defined project-folder
 3.	Open a Miniconda Terminal Window and navigate to the projekt-folder
-4.	Create a new environment ("planspiel") for python 3.8 with the command: conda create -n "planspiel" python=3.8
+4.	Create a new environment ("planspiel") for python 3.11 with the command: conda create -n "planspiel" python=3.11
 5.	Activate the environment with the command: conda activate planspiel
 6.	Install all required packages using the command: pip install –r requirements.txt
-7.	Download and install Solver 'cbc' für Python 3.8: https://oemof-solph.readthedocs.io/en/latest/readme.html#installing-a-solver
+7.	Download and install Solver 'cbc' für Python 3.11: https://oemof-solph.readthedocs.io/en/stable/installation.html
 
 
 # Operation
@@ -46,7 +46,7 @@ The following steps are recommended to run the energy-system-planning-workshop o
 christoph.pels-leusden(at)bht-berlin.de
 
 # License
-Copyright (C) 2021 Berliner Hochschule für Technik
+Copyright (C) 2026 Berliner Hochschule für Technik
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
