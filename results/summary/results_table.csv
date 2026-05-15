@@ -1,0 +1,62 @@
+,1
+Kosten [Eur/a u. Person],1339.9661683671616
+CO2 Emissionen [kg/a u. Person],2697.3627260664734
+Gesamtenergie-Autarkie [%],23.305517675654084
+Energiesystem,-1.0
+Anzahl BHKW [-],0.0
+Anzahl Gaskessel [-],0.0
+Anzahl Wärmepumpen [-],0.0
+PV-Freiflächenanlage [-],1.0
+Anzahl WKA [-],0.0
+Dachfläche PV [ha],2.64
+Dachfläche Solarthermie [ha],2.64
+Kapazität Stromspeicher [-] * Tagesbedarf,0.0
+Kapazität Wärmespeicher [-] * Tagesbedarf,0.0
+Energieflüsse,-1.0
+Strom in kWh/Person & Jahr,-2.0
+Überschuss el. Energie [kWh/Person],529.18973022058
+Bedarf el. Energie Verbrauch[kWh/Person],1908.1896351033001
+Bedarf el. Energie Wärmepumpe [kWh/Person],0.0
+Gesamtbedarf el. Energie [kWh/Person],1908.1896351033001
+El. Energie von BHKW [kWh/Person],0.0
+El. Energie von WKA [kWh/Person],0.0
+El. Energie von PV [kWh/Person],1211.350697618288
+El. Energie Netzbezug [kWh/Person],1226.02866754732
+Wärme in kWh/Person & Jahr,-2.0
+Überschuss Wärme [kWh/Person],140.23272039140002
+Bedarf Wärme [kWh/Person],10533.047632585301
+Wärme von BHKW [kWh/Person],0.0
+Wärme von Gaskessel [kWh/Person],0.0
+Wärme von Solarthermie [kWh/Person],1284.3236312097515
+Wärme von Wärmepumpe [kWh/Person],0.0
+Wärmebezug [kWh/Person],9388.9567220397
+Betriebsanalyse,-1.0
+Verbrauch,-2.0
+Gasverbrauch [kWh/Person],0.0
+Speichernutzung,-2.0
+Vollzyklen Stromspeicher [-],0.0
+Vollzyklen Wärmespeicher [-],0.0
+Deckungsgrad,-2.0
+Autharkie el. Energie [%],35.74911816974895
+Autharkie Wärme [%],10.861917181559223
+Emissionen,-2.0
+Emissionen durch BHKW [kg/Person],0.0
+Emissionen durch Gaskessel [kg/Person],0.0
+Emissionen durch Strombezug [kg/Person],613.01433377366
+Emissionen durch Wärmebezug [kg/Person],2084.3483922928135
+Kostenanalyse,-1.0
+Investition,-2.0
+Gesamtinvestionskosten [EUR/a u. Person],180.385336004674
+Investition BHKW [EUR/a u. Person],0.0
+Investition Gaskessel [EUR/a u. Person],0.0
+Investition WKA [EUR/a u. Person,0.0
+Investition Wärmepumpen [EUR/a u. Person],0.0
+Investition Solarthermie [EUR/a u. Person],105.92021509171252
+Investition PV [EUR/a u. Person],74.46512091296151
+Investition Wärmespeicher [EUR/a u. Person],0.0
+Investition Stromspeicher [EUR/a u. Person],0.0
+Betriebskosten,-2.0
+Gesamte Betriebskosten [EUR/a u. Person],1159.5808323624876
+Kosten Gaseinkauf [EUR/a u. Person],0.0
+Kosten Strombezug [EUR/a u. Person],220.6851601585176
+Kosten Wärmebezug [EUR/a u. Person],938.89567220397
